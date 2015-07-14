@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles2.TilesView;
@@ -40,7 +42,21 @@ public class Config extends WebMvcConfigurerAdapter {
         tilesConfig.setDefinitions("/WEB-INF/tiles-defs.xml");
         return tilesConfig;
     }
-
+/*
+    <bean id="viewResolver"
+             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/vistas/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean> */
+    @Bean  
+    public UrlBasedViewResolver setupSpringViewResolver() {
+        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+        resolver.setViewClass(JstlView.class);
+        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");
+        return resolver;  
+    }
+    
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
