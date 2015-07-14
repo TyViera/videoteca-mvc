@@ -22,7 +22,9 @@ import org.springframework.web.servlet.view.tiles2.TilesView;
  * @author more-panta
  */
 @Configuration
-@ComponentScan("com.springmvc.videoteca.springtiles.controller")
+@ComponentScan(basePackages = {
+    "com.springmvc.videoteca.springtiles.controller", 
+    "com.springmvc.videoteca.spring.model"})
 @EnableWebMvc
 public class Config extends WebMvcConfigurerAdapter {
 
