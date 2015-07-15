@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/07/2015, 06:11:38 PM
+    Author     : nazaret
+*/
+.tituloDiv {
+    margin-top: -20px;
+    color: white;
+    text-align: center;
+    
+}
+
+.fondoDiv{
+    background-color: rgba(255,255,255,0.5); 
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}

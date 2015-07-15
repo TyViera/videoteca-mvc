@@ -11,8 +11,19 @@ and open the template in the editor.
     <!-- BASE DE LA APP WEB - Puede agregarse un jsp footer. -->
     <definition name="baselayout" template="/WEB-INF/tiles/baselayout.jsp">
         <put-attribute name="title" value="Videoteca - FII-UNP " />
-        <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+        <put-attribute name="menu" value="/templates/menu.jsp"/>
         <put-attribute name="contenido" value="/WEB-INF/tiles/contenido.jsp"/>
+    </definition>
+    
+    <definition name="topSection" template="/WEB-INF/tiles/top.jsp">
+        <put-attribute name="title" value="Videoteca - FII-UNP" />
+        <put-attribute name="menu" value="/templates/menu.jsp" />
+        <put-attribute name="banner" value="/templates/banner.jsp"/>
+    </definition>
+    
+    <definition name="botomSection" template="/WEB-INF/tiles/botom.jsp">
+        <put-attribute name="title" value="Videoteca - FII-UNP" />
+        <put-attribute name="footer" value="/templates/footer.jsp"/>
     </definition>
     
     <!-- Extenderan de baselayout, cambiando el contenido, scripts...-->
@@ -29,6 +40,6 @@ and open the template in the editor.
         <put-attribute name="menu" value="/templates/menu.jsp"/>
         <put-attribute name="contenido" value="/templates/nosotros.jsp"/>
     </definition>
-    
+
 </tiles-definitions>
 

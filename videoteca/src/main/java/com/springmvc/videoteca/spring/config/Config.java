@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
@@ -24,7 +23,8 @@ import org.springframework.web.servlet.view.tiles2.TilesView;
 @Configuration
 @ComponentScan(basePackages = {
     "com.springmvc.videoteca.springtiles.controller", 
-    "com.springmvc.videoteca.spring.model"})
+    "com.springmvc.videoteca.spring.model",
+    "com.springmvc.videoteca.spring.service"})
 @EnableWebMvc
 public class Config extends WebMvcConfigurerAdapter {
 
@@ -44,12 +44,6 @@ public class Config extends WebMvcConfigurerAdapter {
         tilesConfig.setDefinitions("/WEB-INF/tiles-defs.xml");
         return tilesConfig;
     }
-/*
-    <bean id="viewResolver"
-             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/vistas/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean> */
     @Bean  
     public UrlBasedViewResolver setupSpringViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
