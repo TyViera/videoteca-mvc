@@ -20,3 +20,9 @@ and open the template in the editor.
     padding: 10px;
     border-radius: 10px;
 }
+div.imgPelicula{
+    height: 300px;
+    width: 200px;
+    border: black solid 1px;
+    /*float: left;*/
+}
