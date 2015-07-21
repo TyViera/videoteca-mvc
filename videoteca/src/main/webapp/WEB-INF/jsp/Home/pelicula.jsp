@@ -4,8 +4,8 @@
     Author     : nazaret
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="pelicula" scope="request" class="com.springmvc.videoteca.spring.bean.Pelicula"></jsp:useBean>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<jsp:useBean id="pelicula" scope="request" class="com.springmvc.videoteca.spring.model.Pelicula"></jsp:useBean>
     <!DOCTYPE html>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -33,8 +33,17 @@
                             Id: <jsp:getProperty name="pelicula" property="id"/>
                             Película: <jsp:getProperty name="pelicula" property="nombre"/>
                             protagonizada por: <jsp:getProperty name="pelicula" property="actores"/>
-                            y dirigida por: <jsp:getProperty name="pelicula" property="director"/>
+                            y dirigida por: <jsp:getProperty name="pelicula" property="directores"/>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <iframe class="youtube-player" width="640" height="385" frameborder="0" 
+                                    src= "<jsp:getProperty name="pelicula"  property="trailerlink"/>" >
+
+                            </iframe>
+                        </td>
+                        <td></td>
                     </tr>
                 </table>
             </div>

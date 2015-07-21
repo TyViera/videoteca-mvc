@@ -1,5 +1,5 @@
 package com.springmvc.videoteca.spring.model;
-// Generated 19/07/2015 12:42:23 PM by Hibernate Tools 4.3.1
+// Generated 19/07/2015 03:21:56 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -25,7 +25,7 @@ public class Sala  implements java.io.Serializable {
      private int numero;
      private String tipo;
      private int capacidad;
-     private Set peliculasalas = new HashSet(0);
+     private Set<Peliculasala> peliculasalas = new HashSet<Peliculasala>(0);
 
     public Sala() {
     }
@@ -37,7 +37,7 @@ public class Sala  implements java.io.Serializable {
         this.tipo = tipo;
         this.capacidad = capacidad;
     }
-    public Sala(int id, int numero, String tipo, int capacidad, Set peliculasalas) {
+    public Sala(int id, int numero, String tipo, int capacidad, Set<Peliculasala> peliculasalas) {
        this.id = id;
        this.numero = numero;
        this.tipo = tipo;
@@ -88,11 +88,11 @@ public class Sala  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="sala")
-    public Set getPeliculasalas() {
+    public Set<Peliculasala> getPeliculasalas() {
         return this.peliculasalas;
     }
     
-    public void setPeliculasalas(Set peliculasalas) {
+    public void setPeliculasalas(Set<Peliculasala> peliculasalas) {
         this.peliculasalas = peliculasalas;
     }
 

@@ -24,6 +24,7 @@ import org.springframework.web.servlet.view.tiles2.TilesView;
 @ComponentScan(basePackages = {
     "com.springmvc.videoteca.springtiles.controller", 
     "com.springmvc.videoteca.spring.model",
+    "com.springmvc.videoteca.spring.bean",
     "com.springmvc.videoteca.spring.service"})
 @EnableWebMvc
 public class Config extends WebMvcConfigurerAdapter {
@@ -56,6 +57,7 @@ public class Config extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/resources/images/**").addResourceLocations("/resources/images/");
     }
     
 }

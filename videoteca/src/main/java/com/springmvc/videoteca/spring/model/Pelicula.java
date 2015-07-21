@@ -1,5 +1,5 @@
 package com.springmvc.videoteca.spring.model;
-// Generated 19/07/2015 12:42:23 PM by Hibernate Tools 4.3.1
+// Generated 19/07/2015 03:21:56 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -28,23 +28,25 @@ public class Pelicula  implements java.io.Serializable {
      private String directores;
      private String sinapsis;
      private String nombre;
+     private String actores;
      private String duracion;
      private String restriccion;
      private String nacionalidad;
      private Date fechaestreno;
      private String imagen;
      private String trailerlink;
-     private Set peliculasalas = new HashSet(0);
+     private Set<Peliculasala> peliculasalas = new HashSet<Peliculasala>(0);
 
     public Pelicula() {
     }
 
 	
-    public Pelicula(int id, String directores, String sinapsis, String nombre, String duracion, String restriccion, String nacionalidad, Date fechaestreno, String imagen, String trailerlink) {
+    public Pelicula(int id, String directores, String sinapsis, String nombre, String actores, String duracion, String restriccion, String nacionalidad, Date fechaestreno, String imagen, String trailerlink) {
         this.id = id;
         this.directores = directores;
         this.sinapsis = sinapsis;
         this.nombre = nombre;
+        this.actores = actores;
         this.duracion = duracion;
         this.restriccion = restriccion;
         this.nacionalidad = nacionalidad;
@@ -52,11 +54,12 @@ public class Pelicula  implements java.io.Serializable {
         this.imagen = imagen;
         this.trailerlink = trailerlink;
     }
-    public Pelicula(int id, String directores, String sinapsis, String nombre, String duracion, String restriccion, String nacionalidad, Date fechaestreno, String imagen, String trailerlink, Set peliculasalas) {
+    public Pelicula(int id, String directores, String sinapsis, String nombre, String actores, String duracion, String restriccion, String nacionalidad, Date fechaestreno, String imagen, String trailerlink, Set<Peliculasala> peliculasalas) {
        this.id = id;
        this.directores = directores;
        this.sinapsis = sinapsis;
        this.nombre = nombre;
+       this.actores = actores;
        this.duracion = duracion;
        this.restriccion = restriccion;
        this.nacionalidad = nacionalidad;
@@ -89,7 +92,7 @@ public class Pelicula  implements java.io.Serializable {
     }
 
     
-    @Column(name="sinapsis", nullable=false, length=200)
+    @Column(name="sinapsis", nullable=false, length=2000)
     public String getSinapsis() {
         return this.sinapsis;
     }
@@ -106,6 +109,16 @@ public class Pelicula  implements java.io.Serializable {
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    
+    @Column(name="actores", nullable=false, length=200)
+    public String getActores() {
+        return this.actores;
+    }
+    
+    public void setActores(String actores) {
+        this.actores = actores;
     }
 
     
@@ -169,11 +182,11 @@ public class Pelicula  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="pelicula")
-    public Set getPeliculasalas() {
+    public Set<Peliculasala> getPeliculasalas() {
         return this.peliculasalas;
     }
     
-    public void setPeliculasalas(Set peliculasalas) {
+    public void setPeliculasalas(Set<Peliculasala> peliculasalas) {
         this.peliculasalas = peliculasalas;
     }
 

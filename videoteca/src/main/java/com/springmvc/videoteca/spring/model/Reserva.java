@@ -1,5 +1,5 @@
 package com.springmvc.videoteca.spring.model;
-// Generated 19/07/2015 12:42:23 PM by Hibernate Tools 4.3.1
+// Generated 19/07/2015 03:21:56 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
