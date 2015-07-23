@@ -5,7 +5,7 @@
  */
 package com.springmvc.videoteca.springtiles.controller;
 
-import com.springmvc.videoteca.spring.bean.MasVistoService;
+import com.springmvc.videoteca.spring.service.MasVistoService;
 import com.springmvc.videoteca.spring.model.Pelicula;
 import com.springmvc.videoteca.spring.service.PeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;

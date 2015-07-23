@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.springmvc.videoteca.spring.bean;
+package com.springmvc.videoteca.spring.service;
 
 import com.springmvc.videoteca.spring.model.Pelicula;
 import java.util.ArrayList;
