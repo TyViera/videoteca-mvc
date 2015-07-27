@@ -18,7 +18,7 @@
         <servlet-name>spring-web</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
- 
+ <!--
     <error-page>
         <error-code>500</error-code>
         <location>/WEB-INF/jsp/error.jsp</location>
@@ -31,7 +31,7 @@
  
     <error-page>
         <location>/WEB-INF/jsp/error.jsp</location>
-    </error-page>
+    </error-page>-->
     <session-config>
         <session-timeout>
             30

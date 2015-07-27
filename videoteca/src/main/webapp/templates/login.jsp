@@ -37,3 +37,4 @@
         </tr>
     </table>
 </form>
+¿No estas registrado?, <a href="registrar.htm">registrate aqui</a>

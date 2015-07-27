@@ -35,4 +35,15 @@ public class ControllerWeb {
    public String redirect4() {
        return "nosotros";
    }
+   
+   @RequestMapping("/registrar.htm")
+   public String redirect3() {
+       return "registrarse";
+   }
+   
+   @RequestMapping("/estrenos.htm")
+   public String redirect5() {
+       return "estrenos";
+   }
+   
 }

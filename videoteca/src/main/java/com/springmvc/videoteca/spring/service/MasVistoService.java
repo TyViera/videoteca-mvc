@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author nazaret
  */
-@Component
+@Service
 public class MasVistoService {
 
     public List<Pelicula> estrenos() {
