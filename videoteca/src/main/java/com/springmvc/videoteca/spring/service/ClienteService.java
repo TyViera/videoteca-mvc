@@ -5,14 +5,21 @@
  */
 package com.springmvc.videoteca.spring.service;
 
-import com.springmvc.videoteca.spring.model.Pelicula;
+import com.springmvc.videoteca.spring.model.Cliente;
+import java.util.List;
 
 /**
  *
  * @author nazaret
  */
-public interface IPeliculaService {
+public interface ClienteService {
 
-    public Pelicula buscarPelicula(Pelicula p);
+    public Cliente findById(int id);
+
+    public List<Cliente> findAll();
+
+    public void saveOrUpdate(Cliente cliente);
+
+    public void delete(int id);
 
 }

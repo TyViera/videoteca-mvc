@@ -1,6 +1,6 @@
 <%-- 
-    Document   : error
-    Created on : 22/07/2015, 11:23:14 PM
+    Document   : redirect
+    Created on : 27/07/2015, 10:44:15 PM
     Author     : nazaret
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Pagina de error!</h1>
+        <jsp:forward page="/Home/" ></jsp:forward>
     </body>
 </html>

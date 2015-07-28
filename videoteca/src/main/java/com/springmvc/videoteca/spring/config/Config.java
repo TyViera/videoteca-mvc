@@ -6,9 +6,10 @@
 package com.springmvc.videoteca.spring.config;
 
 import javax.servlet.MultipartConfigElement;
-import org.springframework.context.annotation.Bean;  
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -23,21 +24,22 @@ import org.springframework.web.servlet.view.tiles2.TilesView;
  */
 @Configuration
 @ComponentScan(basePackages = {
-    "com.springmvc.videoteca.springtiles.controller", 
+    "com.springmvc.videoteca.springtiles.controller",
     "com.springmvc.videoteca.spring.model",
-    "com.springmvc.videoteca.spring.bean",
+    "com.springmvc.videoteca.spring.dao",
+    "com.springmvc.videoteca.spring.validator",
     "com.springmvc.videoteca.spring.service"})
 @EnableWebMvc
 public class Config extends WebMvcConfigurerAdapter {
 
     /**
-     *  Configuracion De mi Tiles
-    */
-    @Bean  
+     * Configuracion De mi Tiles
+     */
+    @Bean
     public UrlBasedViewResolver setupViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
         resolver.setViewClass(TilesView.class);
-        return resolver;  
+        return resolver;
     }
 
     @Bean
@@ -46,19 +48,27 @@ public class Config extends WebMvcConfigurerAdapter {
         tilesConfig.setDefinitions("/WEB-INF/tiles-defs.xml");
         return tilesConfig;
     }
-    @Bean  
+
+    @Bean
     public UrlBasedViewResolver setupSpringViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
         resolver.setViewClass(JstlView.class);
         resolver.setPrefix("/WEB-INF/jsp/");
         resolver.setSuffix(".jsp");
-        return resolver;  
+        return resolver;
     }
-    
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
         registry.addResourceHandler("/resources/images/**").addResourceLocations("/resources/images/");
     }
-    
+
+    @Bean
+    public ResourceBundleMessageSource messageSource() {
+        ResourceBundleMessageSource rb = new ResourceBundleMessageSource();
+        rb.setBasenames(new String[]{"messages/messages", "messages/validation"});
+        return rb;
+    }
+
 }

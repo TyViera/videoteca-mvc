@@ -1,6 +1,6 @@
 <%-- 
-    Document   : error
-    Created on : 22/07/2015, 11:23:14 PM
+    Document   : mostrar
+    Created on : 28/07/2015, 12:30:57 AM
     Author     : nazaret
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Pagina de error!</h1>
+        <h1>Mostrare un cliente!</h1>
     </body>
 </html>
