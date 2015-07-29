@@ -65,7 +65,13 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td><input type="submit"  value ="Registrar"/></td>
+                            <td>
+                                <spring:url value="/Cliente/" var="cancelURL" />
+                                <input class="btn-form" type="submit"  value ="Registrar"/>
+                                <input class="btn-form" type="reset"  value ="Limpiar"/>
+                                <input class="btn-form" type="button"  value ="Cancelar" onclick="location.href = '${cancelURL}'"/>
+                            </td>
+                            
                             <td></td>
                         </tr>
                     </table>

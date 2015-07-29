@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -9,16 +9,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Videoteca</title>
         <tiles:insertDefinition name="cabeza"/>
-        <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css'>-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/slidesShow/demo.css" />" />
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/slidesShow/styleSlide.css"/>"/>
         <%--Javascript--%>
         <!-- jQuery -->
-        <script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <!-- jmpress plugin -->
         <script type="text/javascript" src="<c:url value="/resources/js/jmpress.min.js"/>"></script>
         <!-- jmslideshow plugin : extends the jmpress plugin -->
         <script type="text/javascript" src="<c:url value="/resources/js/jquery.jmslideshow.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/MasVistoSlides.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/resources/js/modernizr.custom.48780.js"/>"></script>
         <noscript>
         <style>
@@ -42,77 +43,126 @@
 
         <tiles:insertDefinition name="topSection" />
         <main>
-            <div class="fondoDiv" >
+            <div class="contenedorSlides">
                 <header class="tituloDiv" ><h1>Estrenos</h1></header>
-                    <%--<c:forEach items="${estrenos}" var="es">
-                    Película: ${es.nombre} protagonizada por: ${es.actores}
-                    y dirigida por: ${es.directores} <br>
-                </c:forEach>--%><img src="<c:url value="/resources/images/slides/1.png"/>" />
-                <div class="container">
-                    <section id="jms-slideshow" class="jms-slideshow">
-                        <div class="step" data-color="color-1">
-                            <div class="jms-content">
-                                <h3>Just when I thought...</h3>
-                                <p>From fairest creatures we desire increase, that thereby beauty's rose might never die</p>
-                                <a class="jms-link" href="#">Read more</a>
-                            </div>
-                            <img src="<c:url value="/resources/images/slides/1.png"/>" />
-                        </div>
-                        <div class="step" data-color="color-2" data-y="500" data-scale="0.4" data-rotate-x="30">
-                            <div class="jms-content">
-                                <h3>Holy cannoli!</h3>
-                                <p>But as the riper should by time decease, his tender heir might bear his memory</p>
-                                <a class="jms-link" href="#">Read more</a>
-                            </div>
-                            <img src="<c:url value="/resources/images/slides/2.png"/>" />
-                        </div>
-                        <div class="step" data-color="color-3" data-x="2000" data-z="3000" data-rotate="170">
-                            <div class="jms-content">
-                                <h3>No time to waste</h3>
-                                <p>Within thine own bud buriest thy content and, tender churl, makest waste in niggarding</p>
-                                <a class="jms-link" href="#">Read more</a>
-                            </div>
-                            <img src="<c:url value="/resources/images/slides/3.png"/>" />
-                        </div>
-                        <div class="step" data-color="color-4" data-x="3000">
-                            <div class="jms-content">
-                                <h3>Supercool!</h3>
-                                <p>Making a famine where abundance lies, thyself thy foe, to thy sweet self too cruel</p>
-                                <a class="jms-link" href="#">Read more</a>
-                            </div>
-                            <img src="<c:url value="/resources/images/slides/4.png"/>" />
-                        </div>
-                        <div class="step" data-color="color-5" data-x="4500" data-z="1000" data-rotate-y="45">
-                            <div class="jms-content">
-                                <h3>Did you know that...</h3>
-                                <p>Thou that art now the world's fresh ornament and only herald to the gaudy spring</p>
-                                <a class="jms-link" href="#">Read more</a>
-                            </div>
-                            <img src="<c:url value="/resources/images/slides/5.png"/>" />
-                        </div>
-                    </section>
-                </div>
+                <section id="jms-slideshow" class="jms-slideshow">
+                    <%
+                        int dataX = 1000;
+                        int dataY = 500;
+                        int dataZ = 3000;
+                        int i = 1;
+                    %>
+                    <c:forEach items="${estrenos}" var="it" varStatus="status" >
+                        <c:choose>
+                            <c:when test="${status.first}">
+                                <div class="step" data-color="color-<c:out value="${status.count}"/>" >
+                                    <div class="jms-content">
+                                        <h3>${it.nombre}</h3>
+                                        <p>${it.descripcionCorta}...</p>
+                                        <a class="jms-link" href="${pageContext.servletContext.contextPath}/Pelicula/${it.id}">Leer más</a>
+                                    </div>
+                                    <img src="${it.imagen}" height="90%" width="35%" />
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="step" data-scale="0.4" data-rotate-x="30"
+                                     data-x="<% out.print(dataX); %>" 
+                                     data-y="<% out.print(dataY); %>"
+                                     data-z="<% out.print(dataZ); %>"
+                                     data-color="color-<% out.print(i); %>" >
+                                    <div class="jms-content">
+                                        <h3>${it.nombre}</h3>
+                                        <p>${it.descripcionCorta}...</p>
+                                        <a class="jms-link" href="${pageContext.servletContext.contextPath}/Pelicula/${it.id}">Leer más</a>
+                                    </div>
+                                    <img src="${it.imagen}" height="90%" width="35%" />
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                        <%
+                            dataX += 1000;
+                            dataY += 500;
+                            dataZ -= 50;
+                            i += 1;
+                        %>
+                    </c:forEach>
+                </section>
                 <script type="text/javascript">
                     $(function () {
-                        $('#jms-slideshow').jmslideshow();
+                        var jmpressOpts = {
+                            animation: {transitionDuration: '2.0s'}
+                        };
+
+                        $('#jms-slideshow').jmslideshow($.extend(true, {jmpressOpts: jmpressOpts}, {
+                            autoplay: true,
+                            bgColorSpeed: '2.0s',
+                            arrows: true
+                        }));
                     });
                 </script>
             </div>
-            <div class="fondoDiv">
-                <header class="tituloDiv"><h1>Los más vistos</h1></header>
-                    <c:forEach items="${masvistos}" var="es">
-                    Película: ${es.nombre} protagonizada por: ${es.actores}
-                    y dirigida por: ${es.directores} <br>
-                </c:forEach>
-            </div>
-            <div class="fondoDiv">
-                <header class="tituloDiv"><h1>Favoritos</h1></header>
-                    <c:forEach items="${favoritos}" var="es">
-                    Película: ${es.nombre} protagonizada por: ${es.actores}
-                    y dirigida por: ${es.directores} <br>
-                </c:forEach>
+            <div class="contenedorSlides">
+                <header class="tituloDiv" ><h1>Mas vistos</h1></header>
+                <section id="jms-slideshowMasVisto" class="jms-slideshow">
+                    <%
+                        dataX = 1000;
+                        dataY = 500;
+                        dataZ = 3000;
+                        i = 5;
+                    %>
+                    <c:forEach items="${masvistos}" var="it" varStatus="status" >
+                        <c:choose>
+                            <c:when test="${status.first}">
+                                <div class="step" data-color="color-<c:out value="${status.count}"/>" >
+                                    <div class="jms-content">
+                                        <h3>${it.nombre}</h3>
+                                        <p>${it.descripcionCorta}...</p>
+                                        <a class="jms-link" href="${pageContext.servletContext.contextPath}/Pelicula/${it.id}">Leer más</a>
+                                    </div>
+                                        <img src="${it.imagen}" height="90%" width="35%" />
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="step" data-scale="0.4" data-rotate-x="30"
+                                     data-x="<% out.print(dataX); %>" 
+                                     data-y="<% out.print(dataY); %>"
+                                     data-z="<% out.print(dataZ); %>"
+                                     data-color="color-<% out.print(i); %>" >
+                                    <div class="jms-content">
+                                        <h3>${it.nombre}</h3>
+                                        <p>${it.descripcionCorta}...</p>
+                                        <a class="jms-link" href="${pageContext.servletContext.contextPath}/Pelicula/${it.id}">Leer más</a>
+                                    </div>
+                                    <img src="${it.imagen}" height="90%" width="35%" />
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                        <%
+                            dataX += 1000;
+                            dataY += 500;
+                            dataZ -= 50;
+                            i -= 1;
+                        %>
+                    </c:forEach>
+                </section>
+                <script type="text/javascript">
+                    $(function () {
+                        var jmpressOpts = {
+                            animation: {transitionDuration: '2.0s'}
+                        };
+
+                        $('#jms-slideshowMasVisto').jmslideshowmasvisto($.extend(true, {jmpressOpts: jmpressOpts}, {
+                            autoplay: true,
+                            bgColorSpeed: '2.0s',
+                            arrows: true
+                        }));
+                    });
+                </script>
             </div>
         </main>
+        <br/>
+        <br/>
+        <br/>
         <tiles:insertDefinition name="botomSection" />
     </body>
 </html>

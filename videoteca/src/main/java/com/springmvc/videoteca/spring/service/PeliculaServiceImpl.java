@@ -5,21 +5,26 @@
  */
 package com.springmvc.videoteca.spring.service;
 
+import com.springmvc.videoteca.spring.dao.PeliculaDAO;
 import com.springmvc.videoteca.spring.model.Pelicula;
-import java.util.Date;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author nazaret
  */
 @Service("peliculaService")
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class PeliculaServiceImpl implements PeliculaService {
 
-    @Override
-    public Pelicula buscarPelicula(Pelicula p) {
+    /*@Override
+    public Pelicula buscarPeliculaById(Integer id) {
         Pelicula p2;
-        p2 = new Pelicula(p.getId(), "Algun Humano putin", "Rambo es una popular saga de "
+        p2 = new Pelicula(id, "Algun Humano putin", "Rambo es una popular saga de "
                 + "películas de acción protagonizadas por Sylvester Stallone. "
                 + "Está basada en los personajes creados por el novelista David "
                 + "Morrell en su novela First blood (‘primera sangre’), "
@@ -36,9 +41,43 @@ public class PeliculaServiceImpl implements PeliculaService {
                 + "la cual llevara por nombre Rambo: Last Blood.1 El rodaje de la "
                 + "cinta se realizara en Filadelfia y estará a cargo de Ryan Coogler.",
                 "Rambo",
-                "Silvester Stalone", "180 minutos", "+14", "EEUU", new Date(), "Rambo1.jpg",
+                "Silvester Stalone", "180 minutos", "+14", "EEUU", new Date(), 
+                "http://localhost:81/Imgs_Videoteca/1.png",
                 "https://www.youtube.com/embed/bVUCdy36TKE");
         return p2;
+    }*/
+
+    @Autowired
+    private PeliculaDAO peliculaDAO;
+    
+    @Override
+    @Transactional
+    public Pelicula findById(int id) {
+        return peliculaDAO.findById(id);
+    }
+
+    @Override
+    @Transactional
+    public List<Pelicula> findAll() {
+        return peliculaDAO.findAll();
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public void saveOrUpdate(Pelicula pelicula) {
+        Pelicula act;
+        act = peliculaDAO.findById(pelicula.getId());
+        if(act == null){
+            peliculaDAO.save(pelicula);
+        }else{
+            peliculaDAO.update(pelicula);
+        }
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public void delete(int id) {
+        peliculaDAO.delete(id);
     }
 
 }

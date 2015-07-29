@@ -53,6 +53,20 @@ public class ClienteController {
         return "Cliente/registrarse";
     }
 
+    // Mostrar cliente
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showUser(@PathVariable("id") int id, Model model) {
+
+        Cliente cliente = clienteService.findById(id);
+        if (cliente == null) {
+            model.addAttribute("msg", "Cliente no encontrado");
+        }
+        model.addAttribute("cliente", cliente);
+
+        return "Cliente/mostrar";
+
+    }
+    
     //Registrar Cliente
     @RequestMapping(value = "/registrar.htm", method = RequestMethod.POST)
     public String saveOrUpdateCliente(@ModelAttribute("clienteForm") @Validated Cliente cliente,
@@ -71,19 +85,4 @@ public class ClienteController {
             return "redirect:/Cliente/" + cliente.getId();
         }
     }
-
-    // Mostrar cliente
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String showUser(@PathVariable("id") int id, Model model) {
-
-        Cliente cliente = clienteService.findById(id);
-        if (cliente == null) {
-            model.addAttribute("msg", "Cliente no encontrado");
-        }
-        model.addAttribute("cliente", cliente);
-
-        return "Cliente/mostrar";
-
-    }
-
 }

@@ -11,7 +11,7 @@ and open the template in the editor.
     margin-top: -20px;
     color: white;
     text-align: center;
-    
+
 }
 
 .fondoDiv{
@@ -25,4 +25,138 @@ div.imgPelicula{
     width: 200px;
     border: black solid 1px;
     /*float: left;*/
+}
+
+.contenedorSlides{
+    width: 95%;
+    position: relative;
+    /*min-height: 750px;*/
+    background-color: rgba(0,0,0,0.2);
+    margin: 0 auto;
+    text-align: justify;
+    padding-bottom: 50px;
+}
+
+.contenedorSlides > header{
+    margin: 10px;
+    padding: 20px 10px 10px 10px;
+    position: relative;
+    display: block;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.contenedorSlides > header h1{
+    font-size: 40px;
+    line-height: 40px;
+    margin: 0;
+    position: relative;
+    font-weight: 300;
+    color: #777;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+}
+
+.contenedorPelicula{
+    margin: 0 auto;
+    width: 70%;
+    background-color: white; 
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contenedorPelicula > header{
+    margin: 10px;
+    padding: 20px 10px 10px 10px;
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.contenedorPelicula > header h1{
+    font-size: 40px;
+    line-height: 40px;
+    margin: 0;
+    position: relative;
+    font-weight: 300;
+    color: #0066ff;
+}
+
+.contenedorPelicula p{
+    text-align: justify;
+    padding: 10px;
+}
+
+.contenedorPelicula div header h1{
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
+    position: relative;
+    font-weight: 300;
+    color: #0066ff;
+}
+
+.tablaContenedor{
+    width: 100%;
+}
+
+.tablaContenedor tr:nth-child(odd){
+    background-color: rgba(120,120,230,0.2);
+    color: #000000;
+}
+
+.tablaContenedor tr:nth-child(even){
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.tablaContenedor td:nth-child(odd){
+    color: #0033cc;
+    padding-left: 10px;
+}
+
+.btn-form{
+    color:#fff;
+    background-color:red;
+    border-color:#d43f3a;
+    height: 30px;
+    border-radius: 5px;
+}
+.btn-form.active,
+.btn-form.focus,
+.btn-form:active,
+.btn-form:focus,
+.btn-form:hover,
+.open>.dropdown-toggle.btn-form{
+    color:#fff;
+    background-color:#c9302c;
+    border-color:#ac2925;
+}
+.btn-form.active,.btn-form:active,.open>.dropdown-toggle.btn-form{
+    background-image:none;
+}
+.btn-form.disabled,
+.btn-form.disabled.active,
+.btn-form.disabled.focus,
+.btn-form.disabled:active,
+.btn-form.disabled:focus,
+.btn-form.disabled:hover,
+.btn-form[disabled],
+.btn-form[disabled].active,
+.btn-form[disabled].focus,
+.btn-form[disabled]:active,
+.btn-form[disabled]:focus,
+.btn-form[disabled]:hover,
+fieldset[disabled] .btn-form,
+fieldset[disabled] .btn-form.active,
+fieldset[disabled] .btn-form.focus,
+fieldset[disabled] .btn-form:active,
+fieldset[disabled] .btn-form:focus,
+fieldset[disabled] .btn-form:hover{
+    background-color:#d9534f;
+    border-color:#d43f3a;
+}
+.btn-form 
+.badge{
+    color:#d9534f;
+    background-color:#fff;
 }

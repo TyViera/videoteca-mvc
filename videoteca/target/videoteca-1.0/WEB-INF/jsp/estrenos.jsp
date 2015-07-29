@@ -48,7 +48,7 @@
     <body>
         <tiles:insertDefinition name="topSection" />
         <div class="clr"></div>
-        <section id="jms-slideshow" class="jms-slideshow">
+        <section id="jms-slideshowEstrenos" class="jms-slideshow">
             <div class="step" data-color="color-1">
                 <div class="jms-content">
                     <h3>Just when I thought...</h3>
