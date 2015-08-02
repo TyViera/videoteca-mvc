@@ -5,7 +5,6 @@
  */
 package com.springmvc.videoteca.springtiles.controller;
 
-import com.springmvc.videoteca.spring.model.Cliente;
 import com.springmvc.videoteca.spring.model.Pelicula;
 import com.springmvc.videoteca.spring.service.PeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -66,9 +66,10 @@ public class PeliculaController {
     }
 
     @RequestMapping(value = "/registrar.htm", method = RequestMethod.POST)
-    public String saveOrUpdate(@ModelAttribute("peliculaForm") @Validated Pelicula pelicula,
-            BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
+    public String saveOrUpdate(@ModelAttribute("peliculaForm") @Validated Pelicula pelicula, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$asdaksjbdakj%%%%%%%%%%%%%%%%%");
         if (result.hasErrors()) {
+            System.out.println(result);
             return "Pelicula/add";
         } else {
             if (pelicula.esNuevo()) {

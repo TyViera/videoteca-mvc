@@ -18,52 +18,68 @@
     </head>
     <body>
         <tiles:insertDefinition name="topSection" />
-        <div>
-            <spring:url value="registrar.htm" var="peliculaActionURL"/>
-            <form:form method="POST" action="${peliculaActionURL}" modelAttribute="peliculaForm">
-                <table>
-                    <tr>
-                        <td><label>Nombre:</label></td>
-                        <td><form:input path="nombre" placeholder="Nombre" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>DNI:</label></td>
-                        <td><form:input path="dni" placeholder="12345678" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>Celular:</label></td>
-                        <td><form:input path="celular" type="tel" placeholder="987654321" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>Correo:</label></td>
-                        <td><form:input path="email" type="email" placeholder="mail@mail.com" /></td>
-                        <td><form:errors path="email" cssClass="campoConError"/> </td>
-                    </tr>
-                    <tr>
-                        <td><label>Usuario:</label></td>
-                        <td><form:input path="nick" placeholder="nombre de usuario" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>Contraseña:</label></td>
-                        <td><form:password path="password" placeholder="contraseña" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>Repita la contraseña:</label></td>
-                        <td><form:password path="confirmPassword" placeholder="contraseña" /></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <spring:url value="/Pelicula/" var="cancelURL" />
-                            <input class="btn-form" type="submit"  value ="Registrar"/>
-                            <input class="btn-form" type="reset"  value ="Limpiar"/>
-                            <input class="btn-form" type="button"  value ="Cancelar" onclick="location.href = '${cancelURL}'"/>
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </form:form>
-        </div>
-        <tiles:insertDefinition name="botomSection" />
-    </body>
+    <center>
+        <spring:url value="registrar.htm" var="peliculaActionURL"/>
+        <form:form method="POST" action="${peliculaActionURL}" modelAttribute="peliculaForm" enctype="multipart/form-data">
+            <table width="100%">
+                <tr>
+                    <td width="15%"><label>Titulo</label></td>
+                    <td width="80%"><form:input path="nombre" placeholder="Titulo" required="true" /></td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Actores</label></td>
+                    <td width="80%">
+                        <textarea name="actores" placeholder="Reparto de la película" required
+                                  cols="30" rows="5"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Director</label></td>
+                    <td width="80%"><form:input path="directores" placeholder="Director" required="true" /></td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Duración</label></td>
+                    <td width="80%"><form:input path="duracion" placeholder="120 min" required="true" pattern="[0-9]{1,3}" /></td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Restricción</label></td>
+                    <td width="80%"><form:input path="restriccion" placeholder="+14" required="true" /></td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Nacionalidad</label></td>
+                    <td width="80%"><form:input path="nacionalidad" placeholder="Peruana" required="true" /></td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Fecha de Estreno</label></td>
+                    <td width="80%"><form:input type="date" path="fechaestreno" placeholder="12/12/12" required="true" /></td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Sinopsis</label></td>
+                    <td width="80%">
+                        <textarea name="sinapsis" placeholder="Descripción de la película" required
+                                  cols="30" rows="5"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Url de Trailer</label></td>
+                    <td width="80%"><form:input type="url" path="trailerlink" required="true" placeholder="https://www.youtube.com/embed/bVUCdy36TKE" /></td>
+                </tr>
+                <tr>
+                    <td width="15%"><label>Imagen</label></td>
+                    <td width="80%"><form:input type="file" path="imagenPeli" required="true" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <spring:url value="/Pelicula/" var="cancelURL" />
+                        <input class="btn-form" type="submit"  value ="Registrar"/>
+                        <input class="btn-form" type="reset"  value ="Limpiar"/>
+                        <input class="btn-form" type="button"  value ="Cancelar" onclick="location.href = '${cancelURL}'"/>
+                    </td>
+                </tr>
+            </table>
+        </form:form>
+    </center>
+    <tiles:insertDefinition name="botomSection" />
+</body>
 </html>

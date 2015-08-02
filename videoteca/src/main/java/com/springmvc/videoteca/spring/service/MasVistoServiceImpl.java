@@ -42,7 +42,7 @@ public class MasVistoServiceImpl implements MasVistoService{
                 + "cinta se realizara en Filadelfia y estará a cargo de Ryan Coogler.", 
                 "Rambo", 
                 "Silvester Stalone", "180 minutos", "+14", "EEUU", new Date(), 
-                "http://localhost:81/Imgs_Videoteca/1.png",
+                "http://localhost/Imgs_Videoteca/1.png",
                 "https://www.youtube.com/embed/bVUCdy36TKE");
         
         lista.add(p);
@@ -65,7 +65,7 @@ public class MasVistoServiceImpl implements MasVistoService{
                 + "cinta se realizara en Filadelfia y estará a cargo de Ryan Coogler.", 
                 "Rambo", 
                 "Silvester Stalone", "180 minutos", "+14", "EEUU", new Date(), 
-                "http://localhost:81/Imgs_Videoteca/1.png",
+                "http://localhost/Imgs_Videoteca/1.png",
                 "https://www.youtube.com/embed/bVUCdy36TKE");
         lista.add(p);
         
@@ -87,7 +87,7 @@ public class MasVistoServiceImpl implements MasVistoService{
                 + "cinta se realizara en Filadelfia y estará a cargo de Ryan Coogler.", 
                 "Rambo", 
                 "Silvester Stalone", "180 minutos", "+14", "EEUU", new Date(), 
-                "http://localhost:81/Imgs_Videoteca/1.png",
+                "http://localhost/Imgs_Videoteca/1.png",
                 "https://www.youtube.com/embed/bVUCdy36TKE");
         lista.add(p);
         
@@ -109,7 +109,7 @@ public class MasVistoServiceImpl implements MasVistoService{
                 + "cinta se realizara en Filadelfia y estará a cargo de Ryan Coogler.", 
                 "Rambo", 
                 "Silvester Stalone", "180 minutos", "+14", "EEUU", new Date(), 
-                "http://localhost:81/Imgs_Videoteca/1.png",
+                "http://localhost/Imgs_Videoteca/1.png",
                 "https://www.youtube.com/embed/bVUCdy36TKE");
         lista.add(p);
         
@@ -131,7 +131,7 @@ public class MasVistoServiceImpl implements MasVistoService{
                 + "cinta se realizara en Filadelfia y estará a cargo de Ryan Coogler.", 
                 "Rambo", 
                 "Silvester Stalone", "180 minutos", "+14", "EEUU", new Date(), 
-                "http://localhost:81/Imgs_Videoteca/1.png",
+                "http://localhost/Imgs_Videoteca/1.png",
                 "https://www.youtube.com/embed/bVUCdy36TKE");
         lista.add(p);
 
