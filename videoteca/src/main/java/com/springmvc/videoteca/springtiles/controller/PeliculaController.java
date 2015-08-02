@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -70,7 +68,7 @@ public class PeliculaController {
         return "Pelicula/add";
     }
 
-    @RequestMapping(value = "/registrar.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "/registrar", method = RequestMethod.POST)
     public String saveOrUpdate(@ModelAttribute("peliculaForm") @Validated Pelicula pelicula, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
         String rutaGuardar, rutaRecuperar;
         if (result.hasErrors()) {
@@ -110,15 +108,19 @@ public class PeliculaController {
     private void guardarImagenPelicula(Pelicula pelicula, String rutaGuardar) throws FileNotFoundException, IOException {
         FileOutputStream fos;
         String extension;
-        if (pelicula != null) {
-            extension = pelicula.getImagenPeli().getOriginalFilename();
-            extension = extension.substring(extension.lastIndexOf("."));
-            
-            rutaGuardar += pelicula.getId() + extension;
-            pelicula.setImagen(pelicula.getImagen() + pelicula.getId() + extension);
-            
-            fos = new FileOutputStream(rutaGuardar);
-            fos.write(pelicula.getImagenPeli().getBytes());
+        try {
+            if (pelicula != null) {
+                extension = pelicula.getImagenPeli().getOriginalFilename();
+                extension = extension.substring(extension.lastIndexOf("."));
+
+                rutaGuardar += pelicula.getId() + extension;
+                pelicula.setImagen(pelicula.getImagen() + pelicula.getId() + extension);
+
+                fos = new FileOutputStream(rutaGuardar);
+                fos.write(pelicula.getImagenPeli().getBytes());
+            }
+        } catch (java.lang.StringIndexOutOfBoundsException ex) {
+            //Ignore
         }
     }
 

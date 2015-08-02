@@ -70,7 +70,7 @@ public class PeliculaServiceImpl implements PeliculaService {
         if(act == null){
             peliculaDAO.save(pelicula);
         }else{
-            peliculaDAO.update(pelicula);
+            peliculaDAO.merge(pelicula);
         }
     }
 
