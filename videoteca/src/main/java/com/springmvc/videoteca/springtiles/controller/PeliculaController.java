@@ -7,6 +7,11 @@ package com.springmvc.videoteca.springtiles.controller;
 
 import com.springmvc.videoteca.spring.model.Pelicula;
 import com.springmvc.videoteca.spring.service.PeliculaService;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,7 +72,7 @@ public class PeliculaController {
 
     @RequestMapping(value = "/registrar.htm", method = RequestMethod.POST)
     public String saveOrUpdate(@ModelAttribute("peliculaForm") @Validated Pelicula pelicula, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$asdaksjbdakj%%%%%%%%%%%%%%%%%");
+        String rutaGuardar, rutaRecuperar;
         if (result.hasErrors()) {
             System.out.println(result);
             return "Pelicula/add";
@@ -77,7 +82,16 @@ public class PeliculaController {
             } else {
                 redirectAttributes.addFlashAttribute("msg", "Pelicula modificado correctamente!");
             }
+            rutaGuardar = "C:\\xampp\\htdocs\\Imgs_Videoteca\\";
+            rutaRecuperar = "http://localhost/Imgs_Videoteca/";
+            pelicula.setImagen(rutaRecuperar);
             peliculaService.saveOrUpdate(pelicula);
+            try {
+                guardarImagenPelicula(pelicula, rutaGuardar);
+                peliculaService.saveOrUpdate(pelicula);
+            } catch (IOException ex) {
+                Logger.getLogger(PeliculaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             return "redirect:/Pelicula/" + pelicula.getId();
         }
     }
@@ -91,6 +105,21 @@ public class PeliculaController {
 
         return "redirect:/Pelicula/";
 
+    }
+
+    private void guardarImagenPelicula(Pelicula pelicula, String rutaGuardar) throws FileNotFoundException, IOException {
+        FileOutputStream fos;
+        String extension;
+        if (pelicula != null) {
+            extension = pelicula.getImagenPeli().getOriginalFilename();
+            extension = extension.substring(extension.lastIndexOf("."));
+            
+            rutaGuardar += pelicula.getId() + extension;
+            pelicula.setImagen(pelicula.getImagen() + pelicula.getId() + extension);
+            
+            fos = new FileOutputStream(rutaGuardar);
+            fos.write(pelicula.getImagenPeli().getBytes());
+        }
     }
 
 }

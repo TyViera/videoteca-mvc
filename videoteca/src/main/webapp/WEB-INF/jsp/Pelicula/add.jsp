@@ -51,8 +51,10 @@
                 </tr>
                 <tr>
                     <td width="15%"><label>Fecha de Estreno</label></td>
-                    <td width="80%"><form:input type="date" path="fechaestreno" placeholder="12/12/12" required="true" /></td>
-                </tr>
+                    <td width="80%">
+                        <form:input type="date"  path="fechaestreno" placeholder="12/12/12" required="true" /></td>
+                     
+                </tr> 
                 <tr>
                     <td width="15%"><label>Sinopsis</label></td>
                     <td width="80%">
