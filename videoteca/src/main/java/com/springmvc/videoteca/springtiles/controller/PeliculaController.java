@@ -83,12 +83,12 @@ public class PeliculaController {
                 redirectAttributes.addFlashAttribute("msg", "Pelicula modificado correctamente!");
             }
             rutaGuardar = "C:\\xampp\\htdocs\\Imgs_Videoteca\\";
-            rutaRecuperar = "http://localhost/Imgs_Videoteca/";
+            rutaRecuperar = "http://localhost:81/Imgs_Videoteca/";
             pelicula.setImagen(rutaRecuperar);
             peliculaService.saveOrUpdate(pelicula);
             try {
                 guardarImagenPelicula(pelicula, rutaGuardar);
-                peliculaService.saveOrUpdate(pelicula);
+                peliculaService.merge(pelicula);
             } catch (IOException ex) {
                 Logger.getLogger(PeliculaController.class.getName()).log(Level.SEVERE, null, ex);
             }

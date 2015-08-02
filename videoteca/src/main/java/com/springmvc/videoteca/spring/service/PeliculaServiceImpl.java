@@ -76,6 +76,12 @@ public class PeliculaServiceImpl implements PeliculaService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public void merge(Pelicula pelicula){
+        peliculaDAO.merge(pelicula);
+    }
+    
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void delete(int id) {
         peliculaDAO.delete(id);
     }
