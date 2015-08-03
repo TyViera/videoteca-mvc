@@ -19,9 +19,14 @@
     <body>
         <tiles:insertDefinition name="topSection" />
     <center>
-        <spring:url value="registrar.htm" var="peliculaActionURL"/>
+        <spring:url value="/Pelicula/registrar" var="peliculaActionURL"/>
         <form:form method="POST" action="${peliculaActionURL}" modelAttribute="peliculaForm" enctype="multipart/form-data">
             <table width="100%">
+                <tr>
+                    <!--<td width="15%"><label>Id</label></td>-->
+                    <td></td>
+                    <td width="80%"><form:hidden path="id" readonly="true"/></td>
+                </tr>
                 <tr>
                     <td width="15%"><label>Titulo</label></td>
                     <td width="80%"><form:input path="nombre" placeholder="Titulo" required="true" /></td>
@@ -29,8 +34,7 @@
                 <tr>
                     <td width="15%"><label>Actores</label></td>
                     <td width="80%">
-                        <textarea name="actores" placeholder="Reparto de la película" required
-                                  cols="30" rows="5"></textarea>
+                        <form:textarea path="actores" placeholder="Reparto de la película" required="true" />
                     </td>
                 </tr>
                 <tr>
@@ -51,13 +55,14 @@
                 </tr>
                 <tr>
                     <td width="15%"><label>Fecha de Estreno</label></td>
-                    <td width="80%"><form:input type="date" path="fechaestreno" placeholder="12/12/12" required="true" /></td>
-                </tr>
+                    <td width="80%">
+                        <form:input type="date"  path="fechaestreno" placeholder="12/12/12" required="true" /></td>
+                     
+                </tr> 
                 <tr>
                     <td width="15%"><label>Sinopsis</label></td>
                     <td width="80%">
-                        <textarea name="sinapsis" placeholder="Descripción de la película" required
-                                  cols="30" rows="5"></textarea>
+                        <form:textarea path="sinapsis" placeholder="Descripción de la película" required="true" />
                     </td>
                 </tr>
                 <tr>
@@ -66,7 +71,16 @@
                 </tr>
                 <tr>
                     <td width="15%"><label>Imagen</label></td>
-                    <td width="80%"><form:input type="file" path="imagenPeli" required="true" /></td>
+                    <td width="80%">
+                        <c:choose>
+                            <c:when test="${peliculaForm.id} == 0">
+                                <form:input type="file" path="imagenPeli" required="true" />
+                            </c:when>
+                            <c:otherwise>
+                                <form:input type="file" path="imagenPeli" />
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>

@@ -177,7 +177,7 @@ public class Pelicula implements java.io.Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "fechaestreno", nullable = false, length = 13)
-    @DateTimeFormat(style="yyyy-MM-dd")//S-small, M- (medium)   L- (long)  F- (full)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")//S-small, M- (medium)   L- (long)  F- (full)
     public Date getFechaestreno() {
         return this.fechaestreno;
     }

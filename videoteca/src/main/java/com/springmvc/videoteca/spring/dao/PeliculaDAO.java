@@ -23,5 +23,7 @@ public interface PeliculaDAO {
     public void update(Pelicula pelicula);
 
     public void delete(Integer id);
+
+    public void merge(Pelicula pelicula);
     
 }

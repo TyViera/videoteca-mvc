@@ -8,6 +8,7 @@ package com.springmvc.videoteca.spring.dao;
 import com.springmvc.videoteca.spring.model.Pelicula;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 @Repository("peliculaDAO")
@@ -21,6 +22,7 @@ public class PeliculaDAOImpl extends AbstractDao<Integer, Pelicula> implements P
     @Override
     public List<Pelicula> findAll() {
         Criteria criteria = super.createEntityCriteria();
+        criteria.addOrder(Order.asc("id"));
         return (List<Pelicula>) criteria.list();
     }
 
@@ -32,6 +34,11 @@ public class PeliculaDAOImpl extends AbstractDao<Integer, Pelicula> implements P
     @Override
     public void update(Pelicula pelicula) {
         super.update(pelicula);
+    }
+    
+    @Override
+    public void merge(Pelicula pelicula){
+        super.merge(pelicula);
     }
 
     @Override

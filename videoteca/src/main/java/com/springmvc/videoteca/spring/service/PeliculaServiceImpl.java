@@ -70,10 +70,16 @@ public class PeliculaServiceImpl implements PeliculaService {
         if(act == null){
             peliculaDAO.save(pelicula);
         }else{
-            peliculaDAO.update(pelicula);
+            peliculaDAO.merge(pelicula);
         }
     }
 
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public void merge(Pelicula pelicula){
+        peliculaDAO.merge(pelicula);
+    }
+    
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void delete(int id) {

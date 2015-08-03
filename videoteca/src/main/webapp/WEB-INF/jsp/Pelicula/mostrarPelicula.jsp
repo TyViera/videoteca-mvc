@@ -4,7 +4,7 @@
     Author     : nazaret
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
 <jsp:useBean id="pelicula" scope="request" class="com.springmvc.videoteca.spring.model.Pelicula"></jsp:useBean>
     <!DOCTYPE html>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
@@ -13,7 +13,7 @@
 <%@page import="java.text.SimpleDateFormat" %>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Pelicula</title>
         <tiles:insertDefinition name="cabeza"/>
     </head>

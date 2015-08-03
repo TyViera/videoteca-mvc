@@ -19,6 +19,8 @@ public interface PeliculaService {
     public List<Pelicula> findAll();
 
     public void saveOrUpdate(Pelicula pelicula);
+    
+    public void merge(Pelicula pelicula);
 
     public void delete(int id);
 
