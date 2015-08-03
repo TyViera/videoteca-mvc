@@ -24,17 +24,26 @@ and open the template in the editor.
         <put-attribute name="banner" value="/templates/banner.jsp"/>
     </definition>
     
+    <!-- Admin -->
+    <definition name="topSectionAdmin" template="/WEB-INF/tiles/top.jsp">
+        <put-attribute name="title" value="Videoteca - FII-UNP" />
+        <put-attribute name="menu" value="/templates/menuAdmin.jsp" />
+        <put-attribute name="banner" value="/templates/banner.jsp"/>
+    </definition>
+    
     <definition name="botomSection" template="/WEB-INF/tiles/botom.jsp">
         <put-attribute name="title" value="Videoteca - FII-UNP" />
         <put-attribute name="footer" value="/templates/footer.jsp"/>
     </definition>
     
     <!-- Extenderan de baselayout, cambiando el contenido, scripts...-->
+    <!--
     <definition name="login" extends="baselayout">
         <put-attribute name="contenido" value="/templates/login.jsp"/>
         <put-attribute name="script" value="" />
     </definition>
-    
+    -->
+    <!--
     <definition name="bienvenido" extends="baselayout">
         <put-attribute name="menu" value="/templates/menu.jsp"/>
     </definition>
@@ -43,6 +52,6 @@ and open the template in the editor.
         <put-attribute name="menu" value="/templates/menu.jsp"/>
         <put-attribute name="contenido" value="/templates/nosotros.jsp"/>
     </definition>
-
+    -->
 </tiles-definitions>
 

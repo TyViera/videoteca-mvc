@@ -8,9 +8,11 @@
     <tr align="center">
         <td align="center">
             <table align="center" valign="center" cellpadding="0px" cellspacing="0px">
-                <tr><td><div id='cssmenu'>
+                <tr>
+                    <td>
+                        <div id='cssmenu'>
                             <ul>
-                                <li class='active '><a href=''><span>Inicio</span></a></li>
+                                <li class='active '><a href='${pageContext.servletContext.contextPath}/Home/'><span>Inicio</span></a></li>
                                 <li class='has-sub '><a href='#'><span>Estrenos</span></a>
                                     <ul>
                                         <li class='has-sub ' ><a href="#"><span>Sub Menu1</span></a>
@@ -28,11 +30,20 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class='has-sub '><a href='nosotros.htm'><span>Nosotros</span></a>
-                                <li><span><input class='active' name="search" type="text" value="" size="20" /></span></li>
-                                <li><a href='#'><span>Login</span></a></li>
+                                <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Home/nosotros.htm'><span>Nosotros</span></a>
+                                <li class='has-sub '>
+                                    <form class="navbar-form navbar-left">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Buscar</button>
+                                    </form>
+                                </li>
+                                <li><a href='${pageContext.servletContext.contextPath}/Cliente/login.htm'><span>Login</span></a></li>
                             </ul>
-                        </div></td></tr>
+                        </div>
+                    </td>
+                </tr>
             </table>
         </td>
     <tr>

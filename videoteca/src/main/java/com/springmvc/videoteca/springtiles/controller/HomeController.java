@@ -30,5 +30,11 @@ public class HomeController {
         modelo.addAttribute("masvistos", masVistoService.masvistos());
         return "/Home/index";
     }
+    
+    
+    @RequestMapping(value = "/nosotros.htm", method = RequestMethod.GET)
+    public String formloginCliente() {
+        return "/nosotros";
+    }
 
 }

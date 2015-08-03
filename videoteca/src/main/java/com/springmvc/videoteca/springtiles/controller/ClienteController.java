@@ -85,4 +85,15 @@ public class ClienteController {
             return "redirect:/Cliente/" + cliente.getId();
         }
     }
+    
+    // Cliente Login
+    @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+    public String formloginCliente() {
+        return "Cliente/login";
+    }
+    
+    @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
+    public String accesoCliente() {
+        return "Cliente/login";
+    }
 }
