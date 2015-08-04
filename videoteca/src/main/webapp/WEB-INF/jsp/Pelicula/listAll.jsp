@@ -36,6 +36,7 @@
                             <th>Titulo</th>
                             <th>Actores</th>
                             <th>Director</th>
+                            <th>Género</th>
                             <th>Duración</th>
                             <th>Restricción</th>
                             <th>Nacionalidad</th>
@@ -49,6 +50,7 @@
                             <td>${pelicula.nombre}</td>
                             <td>${pelicula.actores}</td>
                             <td>${pelicula.directores}</td>
+                            <td>${pelicula.genero}</td>
                             <td>${pelicula.duracion}</td>
                             <td>${pelicula.restriccion}</td>
                             <td>${pelicula.nacionalidad}</td>

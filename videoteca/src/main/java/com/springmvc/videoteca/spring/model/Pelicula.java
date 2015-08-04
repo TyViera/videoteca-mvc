@@ -31,6 +31,7 @@ public class Pelicula implements java.io.Serializable {
     private String sinapsis;
     private String nombre;
     private String actores;
+    private String genero;
     private String duracion;
     private String restriccion;
     private String nacionalidad;
@@ -43,7 +44,7 @@ public class Pelicula implements java.io.Serializable {
 
     @Transient
     public String getDescripcionCorta() {
-        int max = 150;
+        int max = 130;
         if (sinapsis != null && sinapsis.length() > max) {
             descripcionCorta = sinapsis.substring(0, max - 1);
         } else {
@@ -213,8 +214,24 @@ public class Pelicula implements java.io.Serializable {
         this.peliculasalas = peliculasalas;
     }
 
+    @Column(name="genero", nullable = false, length = 20)
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
     public boolean esNuevo() {
         return this.id == 0;
     }
 
+    @Override
+    public String toString() {
+        return "Pelicula{" + "id=" + id + ", directores=" + directores + ", sinapsis=" + sinapsis + ", nombre=" + nombre + ", actores=" + actores + ", genero=" + genero + ", duracion=" + duracion + ", restriccion=" + restriccion + ", nacionalidad=" + nacionalidad + ", fechaestreno=" + fechaestreno + ", imagen=" + imagen + ", trailerlink=" + trailerlink + ", peliculasalas=" + peliculasalas + ", descripcionCorta=" + descripcionCorta + ", imagenPeli=" + imagenPeli + '}';
+    }
+
+    
+    
 }

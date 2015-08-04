@@ -4,7 +4,7 @@
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/jquery.menu.css"/>" />
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/custom-theme/jquery-ui-1.8.4.custom.css"/>" />
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/tyStyles.css"/>" />
-<link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>" />
+<link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" />
 <!-- por el menu -->
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/styles.css"/>" />
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js"/>"></script>

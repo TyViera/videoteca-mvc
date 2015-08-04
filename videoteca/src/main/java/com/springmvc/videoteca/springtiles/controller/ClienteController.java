@@ -6,6 +6,7 @@
 package com.springmvc.videoteca.springtiles.controller;
 
 import com.springmvc.videoteca.spring.model.Cliente;
+import com.springmvc.videoteca.spring.model.Cliente;
 import com.springmvc.videoteca.spring.service.ClienteService;
 import com.springmvc.videoteca.spring.validator.ClienteFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -42,8 +44,9 @@ public class ClienteController {
 
     //Listar todos los clientes
     @RequestMapping(method = RequestMethod.GET)
-    public String index() {
-        return "redirect:/Home/";
+    public String index(Model modelo) {
+        modelo.addAttribute("clientes", clienteService.findAll());
+        return "Cliente/listarClientes";
     }
 
     //Formulario para registrar un cliente
@@ -66,7 +69,7 @@ public class ClienteController {
         return "Cliente/mostrar";
 
     }
-    
+
     //Registrar Cliente
     @RequestMapping(value = "/registrar.htm", method = RequestMethod.POST)
     public String saveOrUpdateCliente(@ModelAttribute("clienteForm") @Validated Cliente cliente,
@@ -85,13 +88,34 @@ public class ClienteController {
             return "redirect:/Cliente/" + cliente.getId();
         }
     }
-    
+
+    // show update form
+    @RequestMapping(value = "/{id}/update", method = RequestMethod.GET)
+    public String showUpdateUserForm(@PathVariable("id") int id, Model model) {
+
+        Cliente cliente = clienteService.findById(id);
+        model.addAttribute("clienteForm", cliente);
+        return "Cliente/registrarse";
+
+    }
+
+    @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
+    public String delete(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
+
+        clienteService.delete(id);
+        redirectAttributes.addFlashAttribute("msg", "¡Cliente borrada con exito!");
+        redirectAttributes.addFlashAttribute("css", "success");
+
+        return "redirect:/Cliente/";
+
+    }
+
     // Cliente Login
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String formloginCliente() {
         return "Cliente/login";
     }
-    
+
     @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
     public String accesoCliente() {
         return "Cliente/login";

@@ -13,15 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="resources/css/estilos.css"/>
         <link type="text/css" rel="stylesheet" href="resources/css/jquery.menu.css"/>
-        <link type="text/css" rel="stylesheet" href="resources/css/datePicker.css"/>
-        <link type="text/css" rel="stylesheet" href="resources/css/jquery.alerts.css"/>
         <link type="text/css" rel="stylesheet" href="resources/css/custom-theme/jquery-ui-1.8.4.custom.css"/>
-        <link type="text/css" rel="stylesheet" href="resources/css/jquery.tree.css"/>
-        <link type="text/css" rel="stylesheet" href="resources/css/pagination.css"/>
         <!-- por el menu -->
-        <link type="text/css" rel="stylesheet" href="resources/css/superfish-navbar.css"/>
-        <link type="text/css" rel="stylesheet" href="resources/css/superfish-vertical.css"/>
-        <link type="text/css" rel="stylesheet" href="resources/css/superfish.css"/>
         <link type="text/css" rel="stylesheet" href="resources/css/styles.css"/>
 
         <!-- SCRIPTS -->

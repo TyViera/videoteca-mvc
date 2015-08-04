@@ -25,7 +25,7 @@
                 <tr>
                     <!--<td width="15%"><label>Id</label></td>-->
                     <td></td>
-                    <td width="80%"><form:hidden path="id" readonly="true"/></td>
+                    <td width="80%"><form:hidden path="id"/></td>
                 </tr>
                 <tr>
                     <td width="15%"><label>Titulo</label></td>
@@ -34,7 +34,7 @@
                 <tr>
                     <td width="15%"><label>Actores</label></td>
                     <td width="80%">
-                        <form:textarea path="actores" placeholder="Reparto de la película" required="true" />
+                        <form:textarea path="actores" placeholder="Reparto de la película" required="true" maxlength="200" />
                     </td>
                 </tr>
                 <tr>
@@ -42,8 +42,22 @@
                     <td width="80%"><form:input path="directores" placeholder="Director" required="true" /></td>
                 </tr>
                 <tr>
+                    <td width="15%"><label>Género</label></td>
+                    <td width="80%"><form:select path="genero" placeholder="Acción" required="true" >
+                            <form:option value="Accion"/>
+                            <form:option value="Aventura"/>
+                            <form:option value="Comedia"/>
+                            <form:option value="Drama"/>
+                            <form:option value="Fantasia"/>
+                            <form:option value="Ficcion"/>
+                            <form:option value="Romantico"/>
+                            <form:option value="Terror"/>
+                        </form:select>    
+                    </td>
+                </tr>
+                <tr>
                     <td width="15%"><label>Duración</label></td>
-                    <td width="80%"><form:input path="duracion" placeholder="120 min" required="true" pattern="[0-9]{1,3}" /></td>
+                    <td width="80%"><form:input path="duracion" placeholder="120 min" required="true"/></td>
                 </tr>
                 <tr>
                     <td width="15%"><label>Restricción</label></td>
@@ -57,7 +71,7 @@
                     <td width="15%"><label>Fecha de Estreno</label></td>
                     <td width="80%">
                         <form:input type="date"  path="fechaestreno" placeholder="12/12/12" required="true" /></td>
-                     
+
                 </tr> 
                 <tr>
                     <td width="15%"><label>Sinopsis</label></td>
@@ -70,10 +84,14 @@
                     <td width="80%"><form:input type="url" path="trailerlink" required="true" placeholder="https://www.youtube.com/embed/bVUCdy36TKE" /></td>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td><form:hidden path="imagen"/></td>
+                </tr>
+                <tr>
                     <td width="15%"><label>Imagen</label></td>
                     <td width="80%">
                         <c:choose>
-                            <c:when test="${peliculaForm.id} == 0">
+                            <c:when test="${peliculaForm.id == 0}">
                                 <form:input type="file" path="imagenPeli" required="true" />
                             </c:when>
                             <c:otherwise>

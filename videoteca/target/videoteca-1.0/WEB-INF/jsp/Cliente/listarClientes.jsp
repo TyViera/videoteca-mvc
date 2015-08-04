@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Peliculas</title>
+        <title>Clientes</title>
         <tiles:insertDefinition name="cabeza"/>
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css"/>"/>
     </head>
@@ -33,34 +33,29 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Titulo</th>
-                            <th>Actores</th>
-                            <th>Director</th>
-                            <th>Género</th>
-                            <th>Duración</th>
-                            <th>Restricción</th>
-                            <th>Nacionalidad</th>
-                            <th>Fecha de Estreno</th>
-                            <th>Action</th>
+                            <th>Nombre</th>
+                            <th>Dni</th>
+                            <th>Nick</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Celular</th>
                         </tr>
                     </thead>
-                    <c:forEach items="${peliculas}" var="pelicula">
+                    <c:forEach items="${clientes}" var="cliente">
                         <tr>
-                            <td>${pelicula.id}</td>
-                            <td>${pelicula.nombre}</td>
-                            <td>${pelicula.actores}</td>
-                            <td>${pelicula.directores}</td>
-                            <td>${pelicula.genero}</td>
-                            <td>${pelicula.duracion}</td>
-                            <td>${pelicula.restriccion}</td>
-                            <td>${pelicula.nacionalidad}</td>
-                            <td>${pelicula.fechaestreno}</td>
+                            <td>${cliente.id}</td>
+                            <td>${cliente.nombre}</td>
+                            <td>${cliente.dni}</td>
+                            <td>${cliente.nick}</td>
+                            <td>${cliente.email}</td>
+                            <td>${cliente.password}</td>
+                            <td>${cliente.celular}</td>
                             <td>
-                                <spring:url value="/Pelicula/${pelicula.id}" var="peliculaUrl" />
-                                <spring:url value="/Pelicula/${pelicula.id}/delete" var="deleteUrl" /> 
-                                <spring:url value="/Pelicula/${pelicula.id}/update" var="updateUrl" />
+                                <spring:url value="/Cliente/${cliente.id}" var="clienteUrl" />
+                                <spring:url value="/Cliente/${cliente.id}/delete" var="deleteUrl" /> 
+                                <spring:url value="/Cliente/${cliente.id}/update" var="updateUrl" />
 
-                                <button class="btn btn-info" onclick="location.href = '${peliculaUrl}'">Query</button>
+                                <button class="btn btn-info" onclick="location.href = '${clienteUrl}'">Query</button>
                                 <button class="btn btn-primary" onclick="location.href = '${updateUrl}'">Update</button>
                                 <button class="btn btn-danger" onclick="this.disabled = true; post('${deleteUrl}')">Delete</button>
                             </td>
