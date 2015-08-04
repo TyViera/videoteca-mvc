@@ -44,7 +44,7 @@ public class Pelicula implements java.io.Serializable {
 
     @Transient
     public String getDescripcionCorta() {
-        int max = 150;
+        int max = 130;
         if (sinapsis != null && sinapsis.length() > max) {
             descripcionCorta = sinapsis.substring(0, max - 1);
         } else {
