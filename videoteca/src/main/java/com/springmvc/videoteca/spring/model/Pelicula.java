@@ -227,4 +227,11 @@ public class Pelicula implements java.io.Serializable {
         return this.id == 0;
     }
 
+    @Override
+    public String toString() {
+        return "Pelicula{" + "id=" + id + ", directores=" + directores + ", sinapsis=" + sinapsis + ", nombre=" + nombre + ", actores=" + actores + ", genero=" + genero + ", duracion=" + duracion + ", restriccion=" + restriccion + ", nacionalidad=" + nacionalidad + ", fechaestreno=" + fechaestreno + ", imagen=" + imagen + ", trailerlink=" + trailerlink + ", peliculasalas=" + peliculasalas + ", descripcionCorta=" + descripcionCorta + ", imagenPeli=" + imagenPeli + '}';
+    }
+
+    
+    
 }

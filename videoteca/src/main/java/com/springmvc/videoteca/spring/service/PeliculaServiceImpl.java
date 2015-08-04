@@ -50,13 +50,13 @@ public class PeliculaServiceImpl implements PeliculaService {
     private PeliculaDAO peliculaDAO;
 
     @Override
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public Pelicula findById(int id) {
         return peliculaDAO.findById(id);
     }
 
     @Override
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Pelicula> findAll() {
         return peliculaDAO.findAll();
     }
@@ -86,19 +86,19 @@ public class PeliculaServiceImpl implements PeliculaService {
     }
 
     @Override
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public Pelicula findByNombre(String nombre) {
         return peliculaDAO.findByNombre(nombre);
     }
     
     @Override
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Pelicula> findByGenero(String genero) {
         return  peliculaDAO.findByGenero(genero);
     }
     
     @Override
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
     public List<Pelicula> findEstrenos() {
         return peliculaDAO.findEstrenos();
     }

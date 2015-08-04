@@ -78,7 +78,7 @@ public class PeliculaController {
 
     @RequestMapping(value = "/registrar", method = RequestMethod.POST)
     public String saveOrUpdate(@ModelAttribute("peliculaForm") @Validated Pelicula pelicula, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
-        String rutaGuardar;
+        String rutaGuardar, rutaRecuperar;
         if (result.hasErrors()) {
             System.out.println(result);
             return "Pelicula/add";
@@ -89,6 +89,7 @@ public class PeliculaController {
                 redirectAttributes.addFlashAttribute("msg", "Pelicula modificado correctamente!");
             }
             rutaGuardar = "C:\\xampp\\htdocs\\Imgs_Videoteca\\";
+
             peliculaService.saveOrUpdate(pelicula);
             try {
                 guardarImagenPelicula(pelicula, rutaGuardar);
@@ -99,7 +100,6 @@ public class PeliculaController {
             return "redirect:/Pelicula/" + pelicula.getId();
         }
     }
-
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
     public String delete(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
 
@@ -111,7 +111,7 @@ public class PeliculaController {
 
     }
 
-    private void guardarImagenPelicula(Pelicula pelicula, String rutaGuardar) throws FileNotFoundException, IOException {
+private void guardarImagenPelicula(Pelicula pelicula, String rutaGuardar) throws FileNotFoundException, IOException {
         FileOutputStream fos;
         String extension;
         try {
@@ -130,5 +130,6 @@ public class PeliculaController {
             //Ignore
         }
     }
+
 
 }

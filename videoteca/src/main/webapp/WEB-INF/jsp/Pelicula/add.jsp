@@ -25,7 +25,7 @@
                 <tr>
                     <!--<td width="15%"><label>Id</label></td>-->
                     <td></td>
-                    <td width="80%"><form:hidden path="id" readonly="true"/></td>
+                    <td width="80%"><form:hidden path="id"/></td>
                 </tr>
                 <tr>
                     <td width="15%"><label>Titulo</label></td>
@@ -34,7 +34,7 @@
                 <tr>
                     <td width="15%"><label>Actores</label></td>
                     <td width="80%">
-                        <form:textarea path="actores" placeholder="Reparto de la película" required="true" max="200" />
+                        <form:textarea path="actores" placeholder="Reparto de la película" required="true" maxlength="200" />
                     </td>
                 </tr>
                 <tr>
@@ -84,10 +84,14 @@
                     <td width="80%"><form:input type="url" path="trailerlink" required="true" placeholder="https://www.youtube.com/embed/bVUCdy36TKE" /></td>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td><form:hidden path="imagen"/></td>
+                </tr>
+                <tr>
                     <td width="15%"><label>Imagen</label></td>
                     <td width="80%">
                         <c:choose>
-                            <c:when test="${peliculaForm.id} == 0">
+                            <c:when test="${peliculaForm.id == 0}">
                                 <form:input type="file" path="imagenPeli" required="true" />
                             </c:when>
                             <c:otherwise>
