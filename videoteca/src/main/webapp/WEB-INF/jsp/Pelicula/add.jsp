@@ -42,8 +42,22 @@
                     <td width="80%"><form:input path="directores" placeholder="Director" required="true" /></td>
                 </tr>
                 <tr>
+                    <td width="15%"><label>Género</label></td>
+                    <td width="80%"><form:select path="genero" placeholder="Acción" required="true" >
+                            <form:option value="Accion"/>
+                            <form:option value="Aventura"/>
+                            <form:option value="Comedia"/>
+                            <form:option value="Drama"/>
+                            <form:option value="Fantasia"/>
+                            <form:option value="Ficcion"/>
+                            <form:option value="Romantico"/>
+                            <form:option value="Terror"/>
+                        </form:select>    
+                    </td>
+                </tr>
+                <tr>
                     <td width="15%"><label>Duración</label></td>
-                    <td width="80%"><form:input path="duracion" placeholder="120 min" required="true" pattern="[0-9]{1,3}" /></td>
+                    <td width="80%"><form:input path="duracion" placeholder="120 min" required="true"/></td>
                 </tr>
                 <tr>
                     <td width="15%"><label>Restricción</label></td>
@@ -57,7 +71,7 @@
                     <td width="15%"><label>Fecha de Estreno</label></td>
                     <td width="80%">
                         <form:input type="date"  path="fechaestreno" placeholder="12/12/12" required="true" /></td>
-                     
+
                 </tr> 
                 <tr>
                     <td width="15%"><label>Sinopsis</label></td>

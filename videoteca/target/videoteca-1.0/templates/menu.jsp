@@ -8,67 +8,55 @@
     <tr align="center">
         <td align="center">
             <table align="center" valign="center" cellpadding="0px" cellspacing="0px">
-                <tr><td><div id='cssmenu'>
+                <tr>
+                    <td>
+                        <div id='cssmenu'>
                             <ul>
-                                <li class='active '><a href=''><span>Inicio</span></a></li>
-                                <li class='has-sub '><a href='estrenos.htm'><span>Estrenos</span></a>
+                                
+                                <li class='active '><a href='${pageContext.servletContext.contextPath}/Home/'><span>Inicio</span></a></li>
+                                <li class='active '><a href='${pageContext.servletContext.contextPath}/Estrenos/'><span>Estrenos</span></a></li>
+                                <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/'><span>Peliculas</span></a>
                                     <ul>
-                                        <li class='has-sub ' ><a href="#"><span>Drama</span></a>
-                                            <ul>
-                                                <li><a href='https://www.google.com.pe'><span>El Cisne Negtro</span></a></li>
-                                                <li><a href='#'><span>Sin Salida</span></a></li>
-                                            </ul>
-
+                                        <li class='has-sub ' ><a href="${pageContext.servletContext.contextPath}/Pelicula/?genero=Drama"><span>Drama</span></a>
+                                         
                                         </li>
-                                        <li class='has-sub '><a href='#'><span>Comedia</span></a>
-                                            <ul>
-                                                <li><a href='#'><span>Chiquito pero peligroso</span></a></li>
-                                                <li><a href='#'><span>No se aceptan devoluciones</span></a></li>
-                                            </ul>
+                                        <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/?genero=Comedia'><span>Comedia</span></a>
+                                           
                                         </li>
-                                        <li class='has-sub '><a href='#'><span>Accion</span></a>
-                                            <ul>
-                                                <li><a href='#'><span>Terminator</span></a></li>
-                                                <li><a href='#'><span>Rambo</span></a></li>
-                                            </ul>
+                                        <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/?genero=Accion'><span>Accion</span></a>
+                                            
                                         </li>
-                                        <li class='has-sub '><a href='#'><span>Aventura</span></a>
-                                            <ul>
-                                                <li><a href='#'><span>Las cronicas de Narnia</span></a></li>
-                                                <li><a href='#'><span>Una aventura extraordinaria</span></a></li>
-                                            </ul>
+                                        <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/?genero=Aventura'><span>Aventura</span></a>
+                                            
                                         </li>
-                                        <li class='has-sub '><a href='#'><span>Terror</span></a>
-                                            <ul>
-                                                <li><a href='#'><span>La huerfana</span></a></li>
-                                                <li><a href='#'><span>Chucky</span></a></li>
-                                            </ul>
+                                        <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/?genero=Terror'><span>Terror</span></a>
+                                           
                                         </li>
-                                        <li class='has-sub '><a href='#'><span>Ficcion</span></a>
-                                            <ul>
-                                                <li><a href='#'><span>El juego de Ender</span></a></li>
-                                                <li><a href='#'><span>Avatar</span></a></li>
-                                            </ul>
+                                        <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/?genero=Ficcion'><span>Ficcion</span></a>
+                                            
                                         </li>
-                                        <li class='has-sub '><a href='#'><span>Romantico</span></a>
-                                            <ul>
-                                                <li><a href='#'><span>3 metros sobre el cielo</span></a></li>
-                                                <li><a href='#'><span>Un paseo para recordar</span></a></li>
-                                            </ul>
+                                        <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/?genero=Romantico'><span>Romantico</span></a>
+                                            
                                         </li>
-                                        <li class='has-sub '><a href='#'><span>Fantasia</span></a>
-                                            <ul>
-                                                <li><a href='#'><span>Oz el increible</span></a></li>
-                                                <li><a href='#'><span>Alicia en el pais de las Maravillas</span></a></li>
-                                            </ul>
+                                        <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Pelicula/?genero=Fantasia'><span>Fantasia</span></a>
+                                            
                                         </li>
                                     </ul>
                                 </li>
-                                <li class='has-sub '><a href='nosotros.htm'><span>Nosotros</span></a>
-                                <li><span><input class='active' name="search" type="text" value="" size="20" /></span></li>
-                                <li><a href='#'><span>Login</span></a></li>
+                                <li class='has-sub '><a href='${pageContext.servletContext.contextPath}/Home/nosotros.htm'><span>Nosotros</span></a>
+                                <li class='has-sub '>
+                                    <form class="navbar-form navbar-left">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Buscar</button>
+                                    </form>
+                                </li>
+                                <li><a href='${pageContext.servletContext.contextPath}/Cliente/login.htm'><span>Login</span></a></li>
                             </ul>
-                        </div></td></tr>
+                        </div>
+                    </td>
+                </tr>
             </table>
         </td>
     <tr>

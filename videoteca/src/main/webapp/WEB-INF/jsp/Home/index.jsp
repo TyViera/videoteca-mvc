@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/slidesShow/styleSlide.css"/>"/>
         <%--Javascript--%>
         <!-- jQuery -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>
         <!-- jmpress plugin -->
         <script type="text/javascript" src="<c:url value="/resources/js/jmpress.min.js"/>"></script>
         <!-- jmslideshow plugin : extends the jmpress plugin -->
@@ -40,7 +40,6 @@
         </noscript>        
     </head>
     <body>
-
         <tiles:insertDefinition name="topSection" />
         <main>
             <div class="contenedorSlides">

@@ -31,6 +31,7 @@ public class Pelicula implements java.io.Serializable {
     private String sinapsis;
     private String nombre;
     private String actores;
+    private String genero;
     private String duracion;
     private String restriccion;
     private String nacionalidad;
@@ -211,6 +212,15 @@ public class Pelicula implements java.io.Serializable {
 
     public void setPeliculasalas(Set<Peliculasala> peliculasalas) {
         this.peliculasalas = peliculasalas;
+    }
+
+    @Column(name="genero", nullable = false, length = 20)
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public boolean esNuevo() {

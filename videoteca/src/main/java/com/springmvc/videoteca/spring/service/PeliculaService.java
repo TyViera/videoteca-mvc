@@ -24,5 +24,11 @@ public interface PeliculaService {
 
     public void delete(int id);
 
+    public Pelicula findByNombre(String nombre);
+    
+    public List<Pelicula>  findByGenero(String genero);
+    
+    public List<Pelicula> findEstrenos();
+    
     
 }

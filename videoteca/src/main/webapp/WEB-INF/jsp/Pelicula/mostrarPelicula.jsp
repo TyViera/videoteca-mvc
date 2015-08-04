@@ -40,6 +40,10 @@
                                     <td width="80%"><jsp:getProperty name="pelicula" property="nombre"/></td>
                                 </tr>
                                 <tr>
+                                    <td width="20%">Género: </td>
+                                    <td width="80%"><jsp:getProperty name="pelicula" property="genero"/></td>
+                                </tr>
+                                <tr>
                                     <td width="20%">Duración: </td>
                                     <td width="80%"><jsp:getProperty name="pelicula" property="duracion"/></td>
                                 </tr>

@@ -26,4 +26,10 @@ public interface PeliculaDAO {
 
     public void merge(Pelicula pelicula);
     
+    public Pelicula findByNombre(String nombre);
+    
+    public List<Pelicula>  findByGenero(String genero);
+    
+    public List<Pelicula> findEstrenos();
+    
 }

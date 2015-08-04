@@ -6,7 +6,10 @@
 package com.springmvc.videoteca.spring.dao;
 
 import com.springmvc.videoteca.spring.model.Pelicula;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
@@ -48,4 +51,34 @@ public class PeliculaDAOImpl extends AbstractDao<Integer, Pelicula> implements P
         super.delete(c);
     }
 
+    public Pelicula findByNombre(String nombre){
+        Query q = super.getSession().createQuery("SELECT p FROM Pelicula p WHERE p.nombre = :nombrePeli ");
+        q.setString("nombrePeli", nombre);
+        return (Pelicula) q.uniqueResult();
+    }
+    
+    public List<Pelicula>  findByGenero(String genero){
+        Query q = super.getSession().createQuery("SELECT p FROM Pelicula p WHERE p.genero = :genero ");
+        q.setString("genero", genero);
+        return q.list();
+    }
+    
+    public List<Pelicula> findEstrenos(){
+        Date semanaAnterior;
+        semanaAnterior = obtenerSemanaAnterior();
+        Query q = super.getSession().createQuery("SELECT p FROM Pelicula p WHERE p.fechaestreno >= :fecha ");
+        q.setDate("fecha", semanaAnterior);
+        return q.list();
+    }
+
+    private Date obtenerSemanaAnterior() {
+        Calendar c;
+        int dia;
+        c = Calendar.getInstance();
+        dia = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, dia - 7);
+        return c.getTime();
+    }
+    
+    
 }

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -35,9 +37,15 @@ public class PeliculaController {
     private PeliculaService peliculaService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index(Model modelo) {
-        modelo.addAttribute("peliculas", peliculaService.findAll());
-        return "/Pelicula/listAll";
+    public String index(Model modelo, @RequestParam(value = "genero", required = false) String genero) {
+
+        if (genero == null) {
+            modelo.addAttribute("peliculas", peliculaService.findAll());
+            return "/Pelicula/listAll";
+        } else {
+            modelo.addAttribute("peliculas", peliculaService.findByGenero(genero));
+            return "/Pelicula/verPorGenero";
+        }
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -118,6 +126,7 @@ public class PeliculaController {
 
                 fos = new FileOutputStream(rutaGuardar);
                 fos.write(pelicula.getImagenPeli().getBytes());
+                fos.close();
             }
         } catch (java.lang.StringIndexOutOfBoundsException ex) {
             //Ignore
