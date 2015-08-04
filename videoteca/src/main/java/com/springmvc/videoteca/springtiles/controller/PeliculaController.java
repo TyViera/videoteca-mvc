@@ -78,7 +78,7 @@ public class PeliculaController {
 
     @RequestMapping(value = "/registrar", method = RequestMethod.POST)
     public String saveOrUpdate(@ModelAttribute("peliculaForm") @Validated Pelicula pelicula, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
-        String rutaGuardar, rutaRecuperar;
+        String rutaGuardar;
         if (result.hasErrors()) {
             System.out.println(result);
             return "Pelicula/add";
@@ -89,8 +89,6 @@ public class PeliculaController {
                 redirectAttributes.addFlashAttribute("msg", "Pelicula modificado correctamente!");
             }
             rutaGuardar = "C:\\xampp\\htdocs\\Imgs_Videoteca\\";
-            rutaRecuperar = "http://localhost:81/Imgs_Videoteca/";
-            pelicula.setImagen(rutaRecuperar);
             peliculaService.saveOrUpdate(pelicula);
             try {
                 guardarImagenPelicula(pelicula, rutaGuardar);
@@ -122,7 +120,7 @@ public class PeliculaController {
                 extension = extension.substring(extension.lastIndexOf("."));
 
                 rutaGuardar += pelicula.getId() + extension;
-                pelicula.setImagen(pelicula.getImagen() + pelicula.getId() + extension);
+                pelicula.setImagen("http://localhost:81/Imgs_Videoteca/" + pelicula.getId() + extension);
 
                 fos = new FileOutputStream(rutaGuardar);
                 fos.write(pelicula.getImagenPeli().getBytes());

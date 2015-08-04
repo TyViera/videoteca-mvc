@@ -34,7 +34,7 @@
                 <tr>
                     <td width="15%"><label>Actores</label></td>
                     <td width="80%">
-                        <form:textarea path="actores" placeholder="Reparto de la película" required="true" />
+                        <form:textarea path="actores" placeholder="Reparto de la película" required="true" max="200" />
                     </td>
                 </tr>
                 <tr>
