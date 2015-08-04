@@ -82,7 +82,7 @@ public class Sala implements java.io.Serializable {
         this.capacidad = capacidad;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sala")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "sala")
     public Set<Peliculasala> getPeliculasalas() {
         return this.peliculasalas;
     }

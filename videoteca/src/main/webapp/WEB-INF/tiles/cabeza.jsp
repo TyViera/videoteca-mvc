@@ -8,3 +8,5 @@
 <!-- por el menu -->
 <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/styles.css"/>" />
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/SalaController.js"/>"></script>

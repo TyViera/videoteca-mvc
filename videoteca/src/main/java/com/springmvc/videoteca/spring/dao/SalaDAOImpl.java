@@ -31,5 +31,15 @@ public class SalaDAOImpl extends AbstractDao<Integer, Sala> implements SalaDAO{
         c = this.findById(id);
         super.delete(c);
     }
+
+    @Override
+    public void save(Sala entity) {
+        super.save(entity); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Sala entity) {
+        super.update(entity); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

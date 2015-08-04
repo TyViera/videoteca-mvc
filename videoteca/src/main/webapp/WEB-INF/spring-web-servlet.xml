@@ -13,7 +13,18 @@
 
     <!-- Scan the JavaConfig -->
     <context:component-scan base-package="com.springmvc.videoteca.spring.config" />
-
+    <mvc:annotation-driven />
+    
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />	
+    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonConverter"/>
+            </list>
+        </property>
+    </bean>
+    
     
 </beans>
